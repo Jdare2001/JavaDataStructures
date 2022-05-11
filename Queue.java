@@ -14,24 +14,24 @@ public class Queue {
             pointer++;
             size++;
         }
-        else(
-            console.println("Queue is full");
-        )
+        else{
+            System.out.println("Queue is full");
+        }
     }
     /**
      * 
      */
-    public String removeFromQueue(){
+    public void removeFromQueue(){
         String stringToBeReturned;
         if(pointer > 0){
             stringToBeReturned = queueArray[0];
-            queueArray = fixArray[queueArray];
+            queueArray = fixArray(queueArray);
             size--;
         }
     }
-    //helper funtion 
-    priviate String fixArray(String[] arrayToBeFixed[]){
-        for(i = 0;i < arrayToBeFixed.length;i++;){
+    //helper function
+    private String[] fixArray(String arrayToBeFixed[]){
+        for(int i = 0;i < arrayToBeFixed.length;i++){
             if(arrayToBeFixed[i+1] != null){
             arrayToBeFixed[i] = arrayToBeFixed[i+1];
             }
@@ -39,6 +39,7 @@ public class Queue {
                 break;
             }
         }
+        return arrayToBeFixed;
     }
     /**
      * 
